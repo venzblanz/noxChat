@@ -1,0 +1,346 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+img{
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+a, button{
+    user-select: auto;
+    -webkit-user-drag: auto;
+    pointer-events: all;
+}
+body{
+    background-image: url('../images/noxia_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Pixelify Sans', monospace;
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(33, 0, 46, 0.6);
+    z-index: 0;
+}
+.about-container{
+    gap: 20px;
+    margin: 40px auto;
+    max-width: 900px;
+    width: calc(100% - 40px);
+}
+.about-header{
+    padding: 40px;
+    background: rgba(140, 100, 180, 0.75);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-height: 20%;
+}
+#profile{
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 40%;
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+}
+.name-title{
+    margin-left: auto;
+    text-align: center;
+}
+#name{
+    color: #eea76d;
+    font-size: 40px;
+    font-weight: bold;
+}
+#title{
+    color: #f2d8cb;
+}
+#noxia-icon{
+    border-radius: 40%;
+    margin-left: auto;
+    width: auto;max-height: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.breaker{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.breaker img{
+    height: auto; 
+    max-width: 80%;
+    object-fit: contain;
+    margin: 40px 0;
+    opacity: 0.8;
+}
+
+.about-body{
+    padding: 40px;
+    background: rgba(140, 100, 180, 0.75);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    align-items: center;
+    gap: 20px;
+    max-height: 20%;
+}
+#about-title{
+    color: #eea76d;
+    font-size: 40px;
+    text-align: center;
+}
+.details{
+    font-size: 20px;
+    text-align: justify;
+}
+#ts-title{
+    color: #eea76d;
+    margin-top: 50px;
+    font-size: 40px;
+    text-align: center;
+}
+#ts-desc{
+    font-size: 20px;
+    text-align: justify;
+}
+
+.lang-icons{
+    display: flex;
+    align-items: center;
+    padding: 20px 50px;
+}
+#c{
+    width: auto;max-height: 100px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#cplus{
+    margin-left: auto;
+    width: auto;max-height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#java{
+    margin-left: auto;
+    width: auto;max-height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#python{
+    margin-left: auto;
+    width: auto;max-height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#mysql{
+    margin-left: auto;
+    width: auto;max-height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#html{
+    margin-left: auto;
+    width: auto;max-height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#css{
+    margin-left: auto;
+    width: auto;max-height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#js{
+    margin-left: auto;
+    width: auto;max-height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#nodejs{
+    margin-left: auto;
+    width: auto;max-height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#kotlin{
+    margin-left: auto;
+    width: auto;max-height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.proj-show {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
+}
+.proj-show img{
+    user-select: auto;
+    -webkit-user-drag: none;
+    pointer-events: all;
+}
+#proj-show-title {
+    text-align: center;
+    opacity: .8;
+    font-size: 40px;
+    color: #eea76d;
+    margin-top: 50px;
+    grid-column: 1 / -1;
+}
+
+.infinilux-part, 
+.shoppingsystem-part, 
+.wildfind-part, 
+.wildquest-part, 
+.medserve-part {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    background: rgba(140, 100, 180, 0.75);
+    height: 280px;
+    cursor: pointer;
+}
+
+#infinilux-image, 
+#shopping-image, 
+#wildfind-image, 
+#wildquest-image, 
+#medserve-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.project-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 15, 45, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-info p {
+    text-align: justify;
+    color: #e0d8f0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.infinilux-part:hover .project-info,
+.shoppingsystem-part:hover .project-info,
+.wildfind-part:hover .project-info,
+.wildquest-part:hover .project-info,
+.medserve-part:hover .project-info {
+    opacity: 1;
+}
+
+.infinilux-part:hover img,
+.shoppingsystem-part:hover img,
+.wildfind-part:hover img,
+.wildquest-part:hover img,
+.medserve-part:hover img {
+    transform: scale(1.1);
+    filter: blur(3px);
+}
+.wildquest-part {
+    grid-column: 1 / -1;
+    height: 100%
+    ;max-width: 100%;
+    margin: 0 auto;
+}
+@media (max-width: 600px) {
+    .about-header{
+        padding: 10px;
+    }
+    .about-body{
+        padding: 15px;
+    }
+    #noxia-icon {
+        max-height: 100px;
+    }
+    #profile {
+        width: 80px;
+        height: 80px;
+    }
+    .lang-icons{
+        padding: 10px 0px;
+    }  
+    #ts-title{
+        margin-top: 20px;
+        font-size: 25px;
+    }
+    #ts-desc{
+        font-size: 12px;
+    }
+    #c{
+        width: auto;max-height: 35px;
+    }
+    #cplus{
+        margin-left: auto;
+        width: auto;max-height: 30px;
+    }
+    #java{
+        margin-left: auto;
+        width: auto;max-height: 30px;
+    }
+    #python{
+        margin-left: auto;
+        width: auto;max-height: 30px;
+    }
+    #mysql{
+        margin-left: auto;
+        width: auto;max-height: 30px;
+    }
+    #html{
+        margin-left: auto;
+        width: auto;max-height: 30px;
+    }
+    #css{
+        margin-left: auto;
+        width: auto;max-height: 30px;
+    }
+    #js{
+        margin-left: auto;
+        width: auto;max-height: 30px;
+    }
+    #nodejs{
+        margin-left: auto;
+        width: auto;max-height: 30px;
+    }
+    #kotlin{
+        margin-left: auto;
+        width: auto;max-height: 30px;
+    }
+    #name { font-size: 20px; }
+    #title{ font-size: 10px; }
+    .details{ font-size: 12px; }
+}

@@ -1,0 +1,332 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    background-image: url('../images/noxia_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Pixelify Sans', monospace;
+    color: white;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(33, 0, 46, 0.6);
+    z-index: 0;
+}
+
+.navbar {
+    user-select: none;
+    background: rgba(115, 57, 173, 0.75);
+    backdrop-filter: blur(6px);
+    margin: 20px 20px 0 20px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.navbar-left{
+    margin-left: 10px;
+    left: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-family: inherit;
+}
+
+.navbar-left p {
+    font-size: 40px;
+    color: #f0c0f8;
+}
+.navbar-left img{
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+.navbar-right{
+    display: flex;
+    padding-right: 30px;
+    gap: 100px;
+}
+.navbar-right a{
+    font-size: 15px;
+    color: #f0c0f8;
+    text-decoration: none;
+}
+.navbar-right button{
+    cursor: pointer;
+    font-size: 15px;
+    font-family: inherit;
+    color: #f0c0f8;
+    background-color: transparent;
+    border: none;
+}
+
+#nox-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+.chat-container {
+    display: flex;
+    gap: 40px;
+    margin: 20px;
+    flex: 1;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
+.card-left {
+    background: rgba(140, 100, 180, 0.75);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    margin: 15px;
+    padding: 8px 15px;
+    gap: 8px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+.search-bar input::placeholder { color: rgba(255,255,255,0.5); }
+
+.contact-list {
+    overflow-y: auto;
+    flex: 1;
+    padding: 0 8px;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin: 4px 0;
+    transition: background 0.2s;
+}
+
+.contact:hover, .contact.active {
+    background: rgba(255,255,255,0.2);
+}
+
+.contact-name {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.contact-status {
+    margin: 0;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.contact-status.online { color: #7dff7d; }
+
+.card-right {
+    background: rgba(140, 100, 180, 0.75);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.empty-state {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+}
+
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.chat-name {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+#message-input {
+    flex: 1;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.85rem;
+    outline: none;
+    resize: none;          /* ← disable manual resize handle */
+    overflow-y: auto;      /* ← scroll if too long */
+    max-height: 120px;     /* ← cap the height */
+}
+
+.message.sent { flex-direction: row-reverse; }
+
+.bubble {
+    max-width: 60%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    font-size: 1rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.message.received .bubble { background: rgba(255,255,255,0.2); }
+.message.sent .bubble { background: #c96ecf; }
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.chat-input input {
+    flex: 1;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.chat-input input::placeholder { color: rgba(255,255,255,0.5); }
+
+.send-btn {
+    background: #c96ecf;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.send-btn:hover { background: #b55abd; }
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: rgba(255,255,255,0.2);
+}
+
+.avatar-sm {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: rgba(255,255,255,0.2);
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 2px; }
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    background: rgba(140, 100, 180, 0.95);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    padding: 40px 50px;
+    width: 90%;
+    max-width: 340px;
+    text-align: center;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal-subtitle {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 25px;
+}

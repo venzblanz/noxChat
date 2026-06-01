@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <title>NOXCHAT</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="images/furfur.png" alt="" id="nox-logo"/>
+            <p>NOXCHAT</p>
+        </div>
+        <div class="navbar-right">
+            <a href="#">About Me</a>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+    <div class="chat-container">
+        <div class="card-left">
+            <div class="search-bar">
+                <input type="text" placeholder="Search username..." id="search-input"/>
+            </div>
+            <div class="contact-list" id="contact-list">
+                <!-- Load the contacts -->
+            </div>
+        </div>
+        <div class="card-right">
+            <div class="empty-state" id="empty-state">
+                <p>Select a contact to start chatting</p>
+            </div>
+            <div class="chat-area" id="chat-area" style="display: none;">
+                <div class="chat-header" id="chat-header">
+                    <img src="" alt="" class="avatar" id="chat-avatar"/>
+                    <div>
+                        <p class="chat-name" id="chat-name"></p>
+                        <p class="contact-status online" id="chat-status">Online</p>
+                    </div>
+                </div>
+                <div class="messages" id="messages">
+
+                </div>
+                <div class="chat-input">
+                    <textarea id="message-input" placeholder="Message..." rows="1"></textarea>
+                    <button class="send-btn" id="send-btn">➤</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-title">Welcome!</div>
+            <p class="modal-subtitle">Set your nickname to get started</p>
+            <div class="field">
+                <label>Nickname</label>
+                <input type="text" id="nickname-input" placeholder="Enter nickname..." autocomplete="off"/>
+            </div>
+            <button class="btn-login" id="save-nickname-btn">Save</button>
+        </div>
+    </div>
+    <script src="js/chat.js"></script>
+</body>
+</html>
