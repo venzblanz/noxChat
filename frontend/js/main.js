@@ -53,7 +53,7 @@ submitBtn.addEventListener('click', async() =>{
         alert(data.message);
         if(isLogin){
             localStorage.setItem('userId', data.userId);
-            window.location.href = '/index.html';
+            window.location.href = '/home';
         }else{
             document.querySelector('input[type="text"]').value = '';
             document.querySelectorAll('input[type="password"]').forEach(input => input.value = '');
@@ -72,3 +72,6 @@ submitBtn.addEventListener('click', async() =>{
         alert(data.error);
     }
 });
+function backToHome(){
+    window.location.replace("/home");
+}

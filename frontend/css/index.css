@@ -207,10 +207,10 @@ body::before {
     gap: 15px;
 }
 
-.message {
+.message-row {
     display: flex;
     align-items: flex-end;
-    gap: 8px;
+    justify-content: flex-start;
 }
 #message-input {
     flex: 1;
@@ -227,10 +227,10 @@ body::before {
     max-height: 120px;     /* ← cap the height */
 }
 
-.message.sent { flex-direction: row-reverse; }
+.message-row.sent { justify-content: flex-end; }
 
 .bubble {
-    max-width: 60%;
+    max-width: 100%;
     padding: 10px 15px;
     border-radius: 18px;
     font-size: 1rem;
@@ -241,8 +241,8 @@ body::before {
     word-break: break-word;
 }
 
-.message.received .bubble { background: rgba(255,255,255,0.2); }
-.message.sent .bubble { background: #c96ecf; }
+.message-row.received .bubble { background: rgba(255,255,255,0.2); }
+.message-row.sent .bubble { background: #c96ecf; }
 
 .chat-input {
     display: flex;
@@ -329,4 +329,32 @@ body::before {
     font-size: 0.75rem;
     color: rgba(255,255,255,0.7);
     margin-bottom: 25px;
+}
+.timestamp{
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+}
+#messages-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.msg-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+}
+.message-row.sent .msg-wrapper {
+    align-items: flex-end;
+}
+.message-row.received .msg-wrapper {
+    align-items: flex-start;
+}
+.message-row.sent .timestamp,
+.message-row.received .timestamp {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 3px;
 }
